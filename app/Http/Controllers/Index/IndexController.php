@@ -498,10 +498,11 @@ class IndexController extends Controller
         $data = Cz::join('zh','cz.z_id','=','zh.z_id')
             ->join('gongsi','cz.g_id','=','gongsi.g_id')->whereIN('cz.g_id',$id)->get();
 //        dd($data);
-        foreach($data as $K=>$v){
-            if($v['z_id'] == ''){
-                $v['z_id'] = '';
-                $v['z_fwsmc'] = '';
+        if(empty($data)){
+            $data = Zh::get();
+            foreach($data as $K=>$v){
+                $v['g_id'] ='';
+                $v['g_name'] = '';
             }
         }
         return view('index.rechargeDesc',[
