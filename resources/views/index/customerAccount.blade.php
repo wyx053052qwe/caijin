@@ -29,10 +29,10 @@
                     <tbody>
                     <tr>
                         <td align="right" style="width: 110px;"><span style="color: #f00; margin-right: 5px;">*</span>联系人姓名：</td>
-                        <td width="300"><input type="text" class="text ui-autocomplete-input contactsName" value="{{$user->c_name}}"/></td>
+                        <td width="300"><input type="text" class="text ui-autocomplete-input contactsName" value="{{$user['c_name']}}"/></td>
                         <td align="right" style="width: 132px;"><span style="color: #f00; margin-right: 5px;">*</span>联系人手机号：</td>
-                        <td width="300"><input type="text" class="text ui-autocomplete-input contactsPhone" maxlength="11	" value="{{$user->c_phone}}"/></td>
-                        <input type="hidden" class="cid" value="{{$user->c_id}}">
+                        <td width="300"><input type="text" class="text ui-autocomplete-input contactsPhone" maxlength="11	" value="{{$user['c_phone']}}"/></td>
+                        <input type="hidden" class="cid" value="{{$user['c_id']}}">
                     </tr>
                     </tbody>
                 </table>
