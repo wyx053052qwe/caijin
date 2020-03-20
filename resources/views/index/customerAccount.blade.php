@@ -14,8 +14,8 @@
             <div class="ui_zh">
                 <div class="fl ui_tx"><img src="/home/images/zh1.png" width="80"></div>
                 <div class="fl ui_xin">
-                    <h3>{{$uu->u_username}}<span>{{$uu->u_name}}</span></h3>
-                    <p>常用联系人：{{$user->c_name}} {{$user->c_phone}}  <a href="javascript:;" class="modify">修改</a>
+                    <h3>{{$uu->u_username}}<span>{{$uu['u_name']}}</span></h3>
+                    <p>常用联系人：{{$user['c_name']}} {{$user['c_phone']}}  <a href="javascript:;" class="modify">修改</a>
                 </div>
                 <div class="fl ui_je">
                     <ul>
