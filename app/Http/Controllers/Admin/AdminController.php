@@ -491,7 +491,6 @@ class AdminController extends Controller
             'g_dkzhsl'=>$data['g_dkzhsl'],
             'g_zpzhsl'=>$data['g_zpzhsl'],
             'g_bl'=>$g_bl,
-            'g_status'=>$data['g_status'],
             'g_zzbj'=>$g_zzbj,
             'g_kubj'=>$g_kubj,
             'g_hsbj'=>$g_hsbj,
