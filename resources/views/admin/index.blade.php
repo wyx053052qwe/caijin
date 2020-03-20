@@ -67,7 +67,11 @@
                     <div class="zhdata-name">累计发放</div>
                     <div class="zhdata-val">
                         <a href="/yue"><span>¥</span>
+                            @if($l['c_ls'] == '')
+                            0
+                            @else
                             {{$l['c_ls']}}
+                            @endif
                         </a>
                     </div>
                 </div>
