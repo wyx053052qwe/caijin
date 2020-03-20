@@ -171,12 +171,7 @@
                         layer.msg("请填写税务登记号");return false;
                     }
                     if(!/^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/.test(r_gsdh)){
-                        layer.msg('固定电话有误，请重填');
-                        return false;
-                    }
-                    var pattern = /^([1-9]{1})(\d{14}|\d{18})$/;
-                    if (!pattern.test(r_yhjbhzh)) {
-                        layer.msg("银行账号有误");
+                        layer.msg('电话有误，请重填');
                         return false;
                     }
                     var data = {r_name:r_name,r_swdj:r_swdj,r_gsdz:r_gsdz,r_gsdh:r_gsdh,r_khxhm:r_khxhm,r_khwd:r_khwd,r_yhjbhzh:r_yhjbhzh};
