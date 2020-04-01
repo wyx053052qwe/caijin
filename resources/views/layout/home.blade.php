@@ -63,7 +63,7 @@
                         <dd><a href="{{url('/home/rechargeLog')}}">上传充值记录</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="">发布商品</a></li>
+                <li class="layui-nav-item"><a href="{{url('/home/geren')}}">个人管理</a></li>
             </ul>
         </div>
     </div>

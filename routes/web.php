@@ -37,6 +37,9 @@ Route::prefix('/')->middleware('checklogin')->group(function(){
     Route::post('/add/uploadsss','Admin\AdminController@uploadsss');
     Route::get('zh','Admin\AdminController@zh');
     Route::get('addtj','Admin\AdminController@addtj');
+    Route::get('jl','Admin\AdminController@jl');
+    Route::post('pstatus','Admin\AdminController@pstatus');
+    Route::post('pdel','Admin\AdminController@pdel');
     Route::post('doaddtj','Admin\AdminController@doaddtj');
     Route::get('addzh','Admin\AdminController@addzh');
     Route::get('yue','Admin\AdminController@yue');
@@ -55,6 +58,8 @@ Route::prefix('/')->middleware('checklogin')->group(function(){
     Route::post('invoiceimg','Admin\AdminController@invoiceimg');
     Route::post('clickEdit','Admin\AdminController@clickEdit');
     Route::post('invioce/istatus','Admin\AdminController@istatus');
+    Route::get('geren','Admin\AdminController@geren');
+    Route::post('delvideo','Admin\AdminController@delvideo');
     Route::post('pass','Admin\AdminController@pass');
     Route::get('logout','Admin\AdminController@logout');
 });
@@ -105,4 +110,7 @@ Route::prefix('/home')->middleware('checklogin')->group(function(){
     Route::post('doinvoiceApply','Index\IndexController@doinvoiceApply');
     Route::post('imgs','Index\IndexController@imgs');
     Route::get('invoiceRecord','Index\IndexController@invoiceRecord');
+    Route::get('geren','Index\IndexController@geren');
+    Route::post('video','Index\IndexController@video');
+    Route::post('dovideo','Index\IndexController@dovideo');
 });

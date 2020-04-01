@@ -6,7 +6,7 @@
     .ce li a{ position: relative;}
     .ce li.icon_jian a span{right: 0;top: 4px;position: absolute;}
     .er li a{font-size:14px;padding: 10px 10px 10px 58px;}
-    .app-title{ color:#fff; font-size:18px;padding: 22px 0 20px 26px;font-weight: bold;}
+    .app-title{ color:#fff; font-size:18px;padding: 22px 0 20px 26px;font-weight: bold;color:#0aa770}
 </style>
 <div class="ui_box">
     <div class="ui_tit"><i class="iconfont"></i>新增转账凭证</div>

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Model\Cz;
+use App\Model\Geren;
 use App\Model\Gongsi;
 use App\Model\Order;
 use App\Model\Sd;
+use App\Model\Upload;
 use App\Model\User;
 use App\Model\Zh;
 use App\Model\Fei;
@@ -620,6 +622,39 @@ class AdminController extends Controller
             return json_encode(['code'=>2,'message'=>"添加失败"]);
         }
     }
+    public function jl()
+    {
+        $data = Upload::
+        join('gongsi','upload.g_id','=','gongsi.g_id')
+            ->join('zh','upload.z_id','=','zh.z_id')
+            ->get(['zh.z_fwsmc','gongsi.g_name','p_money','p_img','p_status','p_text','upload.create_time','p_id']);
+//        dd($data);
+        return view('admin.jl',[
+            'data'=>$data
+        ]);
+    }
+    public function pstatus()
+    {
+        $data = request()->input();
+//        dd($data);
+        $res = Upload::where('p_id',$data['pid'])->update(['p_status'=>$data['status']]);
+        if($res){
+            return json_encode(['code'=>2,'message'=>'成功']);
+        }else{
+            return json_encode(['code'=>1,'message'=>"失败"]);
+        }
+    }
+    public function pdel()
+    {
+        $pid = request()->input('pid');
+//        dd($pid);
+        $res = Upload::where('p_id',$pid)->delete();
+        if($res){
+            return json_encode(['code'=>2,'message'=>"成功"]);
+        }else{
+            return json_encode(['code'=>1,'message'=>"失败"]);
+        }
+    }
     public function addsd()
     {
         $data = Zh::get();
@@ -924,6 +959,24 @@ class AdminController extends Controller
                     $arr[$key] = $value;
                 }
             }
+        }
+    }
+    public function geren()
+    {
+        $data = Geren::paginate(10);
+        return view('admin.geren',[
+            'data'=>$data
+        ]);
+    }
+    public function delvideo()
+    {
+        $gid = request()->input('gid');
+        dd($gid);
+        $res = Geren::where('g_id',$gid)->delete();
+        if($res){
+            return json_encode(['code'=>2,'message'=>"成功"]);
+        }else{
+            return json_encode(['code'=>1,'message'=>"失败"]);
         }
     }
 }

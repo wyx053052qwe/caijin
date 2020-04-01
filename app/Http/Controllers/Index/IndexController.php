@@ -6,6 +6,7 @@ use App\Model\Contact;
 use App\Model\Cz;
 use App\Model\Express;
 use App\Model\Fei;
+use App\Model\Geren;
 use App\Model\Gongsi;
 use App\Model\Invoice;
 use App\Model\Order;
@@ -1121,5 +1122,74 @@ class IndexController extends Controller
             $str .= $chars[mt_rand(0, $lc)];
         }
         return $str;
+    }
+    public function geren()
+    {
+        return view('index.geren');
+    }
+    public function video()
+    {
+        if ($_FILES) {
+            //上传图片具体操作
+            $file_name = $_FILES['file']['name'];
+            //$file_type = $_FILES["file"]["type"];
+            $file_tmp = $_FILES["file"]["tmp_name"];
+            $file_error = $_FILES["file"]["error"];
+            $file_size = $_FILES["file"]["size"];
+            if ($file_error > 0) { // 出错
+                $status = 2;
+                $message = $file_error;
+            } elseif($file_size > 52428800) { // 文件太大了
+                $status = 5;
+                $message = "上传文件不能大于10MB";
+            }else{
+                $date = date('Ymd');
+                $file_name_arr = explode('.', $file_name);
+                $new_file_name = date('YmdHis') . '.' . $file_name_arr[1];
+                $path = "./video/".$date."/";
+                $file_path = $path . $new_file_name;
+                if (!file_exists($path)) {
+                    //TODO 判断当前的目录是否存在，若不存在就新建一个!
+                    mkdir($path,0777,true);
+                }
+                $upload_result = move_uploaded_file($file_tmp, $file_path);
+                $status = '';
+                //此函数只支持 HTTP POST 上传的文件
+                if ($upload_result) {
+                    $status = 1;
+                    $message = $file_path;
+                } else {
+                    $status = 3;
+                    $message = "文件上传失败，请稍后再尝试";
+                }
+            }
+        } else {
+            $status = 4;
+            $message = "参数错误";
+        }
+        return json_encode(['code'=>$status,'message'=>$message]);
+    }
+    public function dovideo()
+    {
+        $data = request()->input();
+        $result = Geren::where('g_username',$data['username'])->first();
+        if($result){
+            return json_encode(['code'=>3,'message'=>"这个人已经添加了"]);
+        }
+        $img = trim($data['img'],'.');
+        $video = trim($data['video'],'.');
+
+        $arr = [
+            'g_username'=>$data['username'],
+            'g_img'=>$img,
+            'g_video'=> $video,
+            'create_time'=>time()
+        ];
+        $res = Geren::insert($arr);
+        if($res){
+            return json_encode(['code'=>2,'message'=>"成功"]);
+        }else{
+            return json_encode(['code'=>1,'message'=>"失败"]);
+        }
     }
 }

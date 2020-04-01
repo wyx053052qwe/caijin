@@ -81,6 +81,7 @@
                     <a class="" href="javascript:;">费用管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="{{url('addtj')}}">添加充值</a></dd>
+                        <dd><a href="{{url('jl')}}">充值记录</a></dd>
                         <dd><a href="{{url('/zh')}}">充值账户</a></dd>
                         <dd><a href="{{url('/yue')}}">余额明细</a></dd>
                         <dd><a href="javascript:;">列表三</a></dd>
@@ -100,16 +101,7 @@
                         <dd><a href="{{url('invioce')}}">发票列表</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">解决方案</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="">超链接</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item"><a href="">云市场</a></li>
-                <li class="layui-nav-item"><a href="">发布商品</a></li>
+                <li class="layui-nav-item"><a href="{{url('geren')}}">个人管理</a></li>
             </ul>
         </div>
     </div>
