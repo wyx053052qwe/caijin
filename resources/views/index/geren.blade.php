@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">开关</label>
+        <label class="layui-form-label">行动轨迹</label>
         <div class="layui-input-block">
             <button type="button" class="layui-btn" id="test1">
                 <i class="layui-icon">&#xe67c;</i>上传图片
@@ -19,7 +19,7 @@
         <input type="hidden" name="img" id="imgpath">
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">开关</label>
+        <label class="layui-form-label">工作视频</label>
         <div class="layui-input-block">
             <button type="button" class="layui-btn" id="video">
                 <i class="layui-icon">&#xe67c;</i>上传视屏

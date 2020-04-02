@@ -7,8 +7,8 @@
     <thead>
     <tr>
         <th>姓名</th>
-        <th>图片</th>
-        <th>视屏</th>
+        <th>行动轨迹</th>
+        <th>工作视频</th>
         <th>添加时间</th>
         <th>操作</th>
     </tr>
