@@ -963,7 +963,7 @@ class AdminController extends Controller
     }
     public function geren()
     {
-        $data = Geren::paginate(10);
+        $data = Geren::orderBy('g_id','desc')->paginate(10);
         return view('admin.geren',[
             'data'=>$data
         ]);
