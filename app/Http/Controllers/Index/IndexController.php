@@ -1172,17 +1172,18 @@ class IndexController extends Controller
     public function dovideo()
     {
         $data = request()->input();
+//        dd($data);
         $result = Geren::where('g_username',$data['username'])->first();
         if($result){
             return json_encode(['code'=>3,'message'=>"这个人已经添加了"]);
         }
-        $img = trim($data['img'],'.');
         $video = trim($data['video'],'.');
 
         $arr = [
             'g_username'=>$data['username'],
-            'g_img'=>$img,
+            'g_img'=>$data['img'],
             'g_video'=> $video,
+            'g_desc'=>$data['desc'],
             'create_time'=>time()
         ];
         $res = Geren::insert($arr);
