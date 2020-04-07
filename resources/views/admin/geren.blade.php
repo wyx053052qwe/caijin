@@ -82,7 +82,7 @@
             map = new BMap.Map(aaa[i]);//在地图容器中创建一个地图
             point = new BMap.Point(a[0],a[1]);//定义一个中心点坐标
             console.log(point)
-            map.centerAndZoom(point, 20);//设定地图的中心点和坐标并将地图显示在地图容器中
+            map.centerAndZoom(point, 15);//设定地图的中心点和坐标并将地图显示在地图容器中
             marker = new BMap.Marker(point); // 创建标注
             map.addOverlay(marker); // 将标注添加到地图中
             marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
