@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Model\Cz;
 use App\Model\Geren;
 use App\Model\Gongsi;
+use App\Model\Info;
 use App\Model\Order;
 use App\Model\Sd;
 use App\Model\Upload;
@@ -971,8 +972,45 @@ class AdminController extends Controller
     public function delvideo()
     {
         $gid = request()->input('gid');
-        dd($gid);
         $res = Geren::where('g_id',$gid)->delete();
+        if($res){
+            return json_encode(['code'=>2,'message'=>"成功"]);
+        }else{
+            return json_encode(['code'=>1,'message'=>"失败"]);
+        }
+    }
+    public function info()
+    {
+        $data = Info::paginate(10);
+//        dd($data);
+        return view('admin.info',[
+            'data'=>$data
+        ]);
+    }
+    public function delinfo()
+    {
+        $iid = request()->input('iid');
+        $res = Info::where('i_id',$iid)->delete();
+        if($res){
+            return json_encode(['code'=>2,'message'=>"成功"]);
+        }else{
+            return json_encode(['code'=>1,'message'=>"失败"]);
+        }
+    }
+    public function tx()
+    {
+        $data = Info::
+        join('tx','info.i_name','=','tx.t_name')
+            ->join('geren','info.i_name','=','geren.g_username')
+            ->paginate(10);
+        return view('admin.tx',[
+            'data'=>$data
+        ]);
+    }
+    public function deltx()
+    {
+        $tid = request()->input('tid');
+        $res = Tx::where('t_id',$tid)->delete();
         if($res){
             return json_encode(['code'=>2,'message'=>"成功"]);
         }else{

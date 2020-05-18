@@ -14,6 +14,8 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+Route::get('/wxapp/login','Login\LoginController@wxLogin');
+Route::get('/wxapp/save','Login\LoginController@save');
 Route::get('login','Login\LoginController@login');
 Route::post('dologin','Login\LoginController@dologin');
 Route::prefix('/')->middleware('checklogin')->group(function(){
@@ -59,9 +61,23 @@ Route::prefix('/')->middleware('checklogin')->group(function(){
     Route::post('clickEdit','Admin\AdminController@clickEdit');
     Route::post('invioce/istatus','Admin\AdminController@istatus');
     Route::get('geren','Admin\AdminController@geren');
+    Route::get('info','Admin\AdminController@info');
+    Route::post('delinfo','Admin\AdminController@delinfo');
     Route::post('delvideo','Admin\AdminController@delvideo');
+    Route::get('tx','Admin\AdminController@tx');
+    Route::post('deltx','Admin\AdminController@deltx');
     Route::post('pass','Admin\AdminController@pass');
     Route::get('logout','Admin\AdminController@logout');
+});
+Route::prefix('/api')->group(function(){
+    Route::post('geren','Api\ApiController@geren');
+    Route::post('upload','Api\ApiController@upload');
+    Route::post('video','Api\ApiController@video');
+    Route::post('users','Api\ApiController@users');
+    Route::post('user','Api\ApiController@user');
+    Route::post('jian','Api\ApiController@jian');
+    Route::post('money','Api\ApiController@money');
+    Route::post('tx','Api\ApiController@tx');
 });
 Route::prefix('/home')->middleware('checklogin')->group(function(){
     Route::get('index','Index\IndexController@home');
@@ -113,4 +129,8 @@ Route::prefix('/home')->middleware('checklogin')->group(function(){
     Route::get('geren','Index\IndexController@geren');
     Route::post('video','Index\IndexController@video');
     Route::post('dovideo','Index\IndexController@dovideo');
+    Route::get('info','Index\IndexController@info');
+    Route::get('tx','Index\IndexController@tx');
 });
+
+

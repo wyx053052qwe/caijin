@@ -64,6 +64,14 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="{{url('/home/geren')}}">个人管理</a></li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">个人管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="{{url('/home/geren')}}">行动轨迹</a></dd>
+                        <dd><a href="{{url('/home/info')}}">个人信息</a></dd>
+                        <dd><a href="{{url('/home/tx')}}">提现管理</a></dd>
+                    </dl>
+                </li>
             </ul>
         </div>
     </div>

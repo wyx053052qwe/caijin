@@ -10,6 +10,7 @@
         <th>姓名</th>
         <th>行动轨迹</th>
         <th>工作视频</th>
+        <th>备注</th>
         <th>添加时间</th>
         <th>操作</th>
     </tr>
@@ -19,7 +20,7 @@
     <tr gid="{{$d->g_id}}">
         <td>{{$d->g_username}}</td>
         <td>
-            <div class="form-group" style="height:100px; width:100%;margin-left: 1%" id="allmap{{$d->g_id}}"></div>
+            <div class="form-group" style="height:150px; width:260px;margin-left: 1%" id="allmap{{$d->g_id}}"></div>
         </td>
         <input type="hidden" class="img" value="{{$d->g_img}}">
         <td>
@@ -33,6 +34,7 @@
 
             </video>
         </td>
+        <td>{{$d->g_desc}}</td>
         <td>{{date('Y-m-d H:i:s',$d->create_time)}}</td>
         <td>
             <div class="layui-btn-group">

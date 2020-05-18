@@ -101,7 +101,14 @@
                         <dd><a href="{{url('invioce')}}">发票列表</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="{{url('geren')}}">个人管理</a></li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">个人管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="{{url('geren')}}">行动轨迹</a></dd>
+                        <dd><a href="{{url('info')}}">个人信息</a></dd>
+                        <dd><a href="{{url('tx')}}">提现管理</a></dd>
+                    </dl>
+                </li>
             </ul>
         </div>
     </div>

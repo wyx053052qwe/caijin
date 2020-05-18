@@ -8,6 +8,7 @@ use App\Model\Express;
 use App\Model\Fei;
 use App\Model\Geren;
 use App\Model\Gongsi;
+use App\Model\Info;
 use App\Model\Invoice;
 use App\Model\Order;
 use App\Model\Raised;
@@ -1192,5 +1193,22 @@ class IndexController extends Controller
         }else{
             return json_encode(['code'=>1,'message'=>"失败"]);
         }
+    }
+    public function info()
+    {
+        $data = Info::paginate(10);
+        return view('index.info',[
+            'data'=>$data
+        ]);
+    }
+    public function tx()
+    {
+        $data = Info::
+        join('tx','info.i_name','=','tx.t_name')
+            ->join('geren','info.i_name','=','geren.g_username')
+            ->paginate(10);
+        return view('index.tx',[
+            'data'=>$data,
+        ]);
     }
 }
